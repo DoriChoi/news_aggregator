@@ -1,6 +1,6 @@
 "use client"
 import { useState, useEffect } from "react"
-import { Search, Menu, Radio, RefreshCw, LogIn, LogOut, User } from "lucide-react"
+import { Search, Menu, Radio, RefreshCw, LogIn, LogOut, User, BookOpen } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -110,6 +110,12 @@ export function NewsHeader({ searchQuery, onSearchChange, onRefresh }: NewsHeade
             <RefreshCw className="h-5 w-5" />
           </Button>
           <ThemeToggle />
+          <Button variant="ghost" size="sm" asChild className="gap-2">
+            <Link href="/guide">
+              <BookOpen className="h-4 w-4" />
+              <span className="hidden sm:inline">가이드</span>
+            </Link>
+          </Button>
           {user ? (
             <>
               <Button variant="ghost" size="sm" asChild className="gap-2">
@@ -140,7 +146,7 @@ export function NewsHeader({ searchQuery, onSearchChange, onRefresh }: NewsHeade
                 <SheetTitle>Menu</SheetTitle>
                 <SheetDescription>Navigate through news categories</SheetDescription>
               </SheetHeader>
-              <div className="mt-6">
+              <div className="mt-6 space-y-4">
                 <div className="flex gap-2">
                   <Input
                     type="search"
@@ -152,6 +158,33 @@ export function NewsHeader({ searchQuery, onSearchChange, onRefresh }: NewsHeade
                   <Button variant="default" size="icon" onClick={handleSearchClick} title="Search">
                     <Search className="h-4 w-4" />
                   </Button>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <Button variant="outline" asChild className="w-full justify-start gap-2">
+                    <Link href="/guide">
+                      <BookOpen className="h-4 w-4" />
+                      가이드
+                    </Link>
+                  </Button>
+                  {user ? (
+                    <>
+                      <Button variant="outline" asChild className="w-full justify-start gap-2">
+                        <Link href="/mypage">
+                          <User className="h-4 w-4" />
+                          마이페이지
+                        </Link>
+                      </Button>
+                      <Button variant="outline" onClick={handleLogout} className="w-full justify-start gap-2">
+                        <LogOut className="h-4 w-4" />
+                        로그아웃
+                      </Button>
+                    </>
+                  ) : (
+                    <Button variant="outline" onClick={() => setIsLoginModalOpen(true)} className="w-full justify-start gap-2">
+                      <LogIn className="h-4 w-4" />
+                      로그인
+                    </Button>
+                  )}
                 </div>
               </div>
             </SheetContent>

@@ -550,6 +550,7 @@ export default function MyPage() {
                 <div className="flex gap-4">
                   {[
                     { value: 6, label: "오전 6시" },
+                    { value: 12, label: "낮 12시" },
                     { value: 18, label: "오후 6시" },
                   ].map((option) => (
                     <div key={option.value} className="flex items-center space-x-2">
@@ -590,7 +591,7 @@ export default function MyPage() {
                     {emailForm.deliveryHour === 6
                       ? "오전 6시"
                       : emailForm.deliveryHour === 12
-                        ? "오후 12시"
+                        ? "낮 12시"
                         : "오후 6시"}
                     에 최근 24시간 이내 구독 키워드 관련 뉴스 10개를 이메일로 받습니다.
                   </AlertDescription>

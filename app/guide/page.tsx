@@ -74,8 +74,8 @@ export default function GuidePage() {
               </CardDescription>
               <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground ml-4">
                 <li>최대 3개 키워드 등록 가능</li>
-                <li>배송 시간: 오전 6시, 낮 12시, 오후 6시 (KST)</li>
-                <li>요일별 수신 설정 가능</li>
+                <li>배송 시간: 오전 6시, 낮 12시, 오후 6시 (KST) 중 선택</li>
+                <li>요일별 수신 설정 가능 (일~토 선택)</li>
                 <li>Resend API를 통한 예약 발송</li>
               </ul>
               <div className="pt-2">
